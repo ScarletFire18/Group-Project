@@ -3,87 +3,98 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pet;
-//import java.util.Scanner;
+
+
 
 /**
  *
  * @author pat
  */
-public class Pet {
-   // Scanner in = new Scanner(System.in);
-    /*
-    * 
-    
-    
-    */
-    
-    
-    private String name;
-    private int age;
-    private String sound;
-    private boolean hunger;
+public class Pet 
+   {
+      private String name;
+      private int age;
+      private String sound;
+      private boolean hunger;
 
-    public Pet(){
-        name = null;
-        age = 0;
-        sound = null;
-        hunger = false;   
-    }
+      public Pet()   //default constructor
+         {
+            name = null;
+            age = 0;
+            sound = null;
+            hunger = false; 
+         }
+         
     
-        public Pet(String n, int a, String s, boolean h){
-        name = n;
-        age = a;
-        sound = s;
-        hunger = h;   
-    }
+        public Pet(String n, int a, String s, boolean h) //overloaded constructor
+         {
+            this.name = n;
+            this.age = a;
+            this.sound = s;
+            this.hunger = h;   
+            
+            System.out.println("Hi, my name is " + this.getName() + ". I am " + this.getAge() + " years old.");
+            System.out.println(this.talk()); 
+            this.checkHunger();
+        }
         
-        public void setName( String n){
+        public void setName(String n)
+        {
             name = n;
         }
         
-        public void setAge(int a){
+        public void setAge(int a)
+        {
             age = a;
         }
         
-        public void setSound(String s){
+        public void setSound(String s)
+        {
             sound = s;
         }
         
-        public void setHunger( String h){
-            
-            if( h.equals("y")){
-                hunger = true;
-            }
-            else if( h.equals("n")){
-                hunger = false;
-                
-            }
-            else{
-                System.out.println("Please enter [y/n]");
-            }
-
+        public void setHunger(boolean h)
+        {
+            hunger = h;
         }
         
-        public int getAge(){
+        public int getAge()
+        {
             return age;
         }
         
-        public boolean getHunger(){
+        public boolean getHunger()
+        {
             return hunger;
         }
         
-        public String getSound(){
+        public String getSound()
+        {
             return sound;
         }
         
-        public String getName(){
+        public String getName()
+        {
             return name;
         }
             
-        public void feed(){
+        public void feed()
+        {
+            System.out.println("Feeding " + this.getName() + "...");
             hunger = false;
         }
         
+        public void checkHunger()
+        {
+            if (this.hunger)
+               System.out.println("" + this.getName() + " is hungry.");
+            else
+               System.out.println("" + this.getName() + " is not hungry.");
+        }
+        
+        public String talk()
+         {
+            return this.getSound();
+         }
     
 }
